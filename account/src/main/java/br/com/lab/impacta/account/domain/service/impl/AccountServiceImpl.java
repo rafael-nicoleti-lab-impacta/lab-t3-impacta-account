@@ -6,13 +6,14 @@ import br.com.lab.impacta.account.domain.model.Account;
 import br.com.lab.impacta.account.domain.service.AccountService;
 import br.com.lab.impacta.account.infrastructure.repository.AccountRepository;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class AccountServiceImpl implements AccountService {
 
     private final AccountRepository accountRepository;

@@ -9,10 +9,11 @@ import br.com.lab.impacta.account.application.dto.response.DebitAccountResponse;
 import br.com.lab.impacta.account.domain.model.Account;
 import br.com.lab.impacta.account.domain.service.AccountService;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class AccountApplicationImpl implements AccountApplication {
 
     private final AccountService accountService;
@@ -26,6 +27,8 @@ public class AccountApplicationImpl implements AccountApplication {
 
     @Override
     public DebitAccountResponse debit(Long accountId, DebitAccountRequest debitAccountRequest) {
-        return null;
+        accountService.debit(accountId, debitAccountRequest.getValueOfDebit());
+
+        return new DebitAccountResponse(true);
     }
 }
